@@ -1,66 +1,74 @@
-﻿@model DotNetAppSqlDb.Models.UserRegistration
+﻿@model IEnumerable<DotNetAppSqlDb.Models.UserRegistration>
 
 @{
     ViewBag.Title = "Index";
 }
+<br /><br />
+<div class="table-bordered" style="width:650px; height: 460px; background-color: #FAF9F9;">
+    <br />
+    <p class="btn btn-success" style="margin-left:500px;color:#000;">
+        @Html.ActionLink(" + Add User ", "Create", new { @style = "background-color:#fff;" })
+    </p>
 
-<h2>List of Registered Users</h2>
+    <h3 style="float:left; margin-left:50px;">List of Registered Users</h3>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
 
-        <th>
-            @Html.DisplayNameFor(model => model.Gender)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SelectedDays)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AddRequest)
-        </th>
-    </tr>
+    <div style="overflow-x:auto; width: 550px; overflow-y:auto;height: 300px;background-color: #fff;margin-left:50px;" ">
+        <table class="table table-bordered">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ID)
-        </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.Gender)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SelectedDays)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AddRequest)
+                </th>
+            </tr>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Gender)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SelectedDays)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AddRequest)
-        </td>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ID)
+                    </td>
 
-    </tr>
-}
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gender)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SelectedDays)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AddRequest)
+                    </td>
 
-</table>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
